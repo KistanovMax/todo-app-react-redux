@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import TodoListItem from '../TodoListItem/TodoListItem';
 import './TodoList.css';
 
-export default function TodoList() {
+function TodoList() {
   const todosArr = useSelector((state) => state.todoReducer);
 
   return (
@@ -16,3 +16,5 @@ export default function TodoList() {
     </div>
   );
 }
+
+export default React.memo(TodoList);

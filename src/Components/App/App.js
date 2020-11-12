@@ -7,10 +7,10 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className='container'>
+    <div className='container jumbotron'>
       <Header />
-      <TodoList />
       <TodoForm />
+      <TodoList />
     </div>
   );
 }
