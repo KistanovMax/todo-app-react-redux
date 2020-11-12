@@ -1,6 +1,10 @@
-import React from 'react'
-import './TodoListItem.css'
+import React from 'react';
+import './TodoListItem.css';
 
-export default function TodoListItem() {
-  return <div>Task 1</div>
+export default function TodoListItem({ title }) {
+  return (
+    <ul>
+      <li className='todo-list-item'>{title}</li>
+    </ul>
+  );
 }

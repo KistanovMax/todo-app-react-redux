@@ -1,17 +1,16 @@
-const initialState = { id: 0, text: '', done: false }
+const initialState = [{ id: 0, title: '', done: false }];
 
 const todoReducer = (state = initialState, action) => {
-  const { type, payload } = action
+  const { type, payload } = action;
   switch (type) {
     case 'ADD_TODO':
-      return (state = {
+      return (state = [
         ...state,
-        payload,
-      })
-
+        { id: state.length, title: payload, done: false },
+      ]);
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default todoReducer
+export default todoReducer;

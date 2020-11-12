@@ -1,9 +1,9 @@
-import React from 'react'
-import Header from '../Header/Header'
-import TodoList from '../TodoList/TodoList'
-import TodoForm from '../TodoForm/TodoForm'
+import React from 'react';
+import Header from '../Header/Header';
+import TodoList from '../TodoList/TodoList';
+import TodoForm from '../TodoForm/TodoForm';
 
-import './App.css'
+import './App.css';
 
 export default function App() {
   return (
@@ -12,5 +12,5 @@ export default function App() {
       <TodoList />
       <TodoForm />
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 {
-   "prettier.packageManager": "yarn",
-   "prettier.printWidth": 80,
-   "prettier.semi": false,
-   "prettier.singleQuote": true
+  "prettier.packageManager": "yarn",
+  "prettier.printWidth": 80,
+  "prettier.semi": true,
+  "prettier.singleQuote": true
 }
