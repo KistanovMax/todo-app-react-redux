@@ -1,14 +1,19 @@
 import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { deleteTodo } from '../../redux/actions/actions';
+
 import './TodoListItem.css';
 
-function TodoListItem({ title }) {
+function TodoListItem({ title, todoId }) {
   const [isDone, setIsDone] = useState(false);
+
+  const dispatch = useDispatch();
+  const clickTrashButton = (id) => dispatch(deleteTodo(id));
 
   const tooggleCheckbox = useCallback(() => {
     setIsDone(!isDone);
   }, [isDone]);
-
-  console.log(isDone);
 
   let listItemStyle = 'list-group-item-secondary';
 
@@ -16,11 +21,9 @@ function TodoListItem({ title }) {
     listItemStyle = 'list-group-item-danger';
   }
 
-  console.log(listItemStyle);
-
   return (
     <ul className='list-group'>
-      <li className={`list-group-item ${listItemStyle}  item-box`}>
+      <li className={`list-group-item ${listItemStyle} item-box`}>
         <div>
           <input
             className='form-check-input'
@@ -30,7 +33,11 @@ function TodoListItem({ title }) {
           <div className='titleText'>{title}</div>
         </div>
         {isDone && (
-          <button className='btn btn-info btn-sm' type='button'>
+          <button
+            onClick={() => clickTrashButton(todoId)}
+            className='btn btn-info btn-sm'
+            type='button'
+          >
             <svg
               width='1.2em'
               height='1.2em'

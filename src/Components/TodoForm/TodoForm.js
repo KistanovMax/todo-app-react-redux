@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import './TodoForm.css';
 
 import { addTodo } from '../../redux/actions/actions';
 
-export default function TodoForm() {
+function TodoForm() {
   const [title, setTitle] = useState('');
 
   const dispatch = useDispatch();
-  const handleClickButton = (title) => dispatch(addTodo(title));
+  const clickAddkButton = (title) => dispatch(addTodo(title));
 
-  const typeTitleText = (event) => {
-    setTitle(event.target.value);
-  };
+  const typeTitleText = useCallback(
+    (event) => {
+      setTitle(event.target.value);
+    },
+    [setTitle]
+  );
 
   return (
     <div className='input-group mb'>
@@ -26,8 +30,8 @@ export default function TodoForm() {
       <div className='input-group-append'>
         <button
           disabled={!title}
-          onClick={() => handleClickButton(title, setTitle(''))}
-          className='btn btn-info disabled'
+          onClick={() => clickAddkButton(title, setTitle(''))}
+          className='btn btn-info'
           type='button'
         >
           Add ToDo
@@ -36,3 +40,5 @@ export default function TodoForm() {
     </div>
   );
 }
+
+export default React.memo(TodoForm);

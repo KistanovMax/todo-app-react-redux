@@ -1,4 +1,4 @@
-<h3>ToDo App</h3>
+<h1>Simple ToDo App v.1 (React-Redux)</h1>
 
 # Getting Started with Create React App
 
