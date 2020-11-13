@@ -1,15 +1,15 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import uuid from 'uuid/v4';
 import './TodoForm.css';
 
 import { addTodo } from '../../redux/actions/actions';
 
 function TodoForm() {
   const [title, setTitle] = useState('');
-
+  const todoId = uuid();
   const dispatch = useDispatch();
-  const clickAddkButton = (title) => dispatch(addTodo(title));
+  const clickAddkButton = (title, todoId) => dispatch(addTodo(title, todoId));
 
   const typeTitleText = useCallback(
     (event) => {
@@ -30,7 +30,7 @@ function TodoForm() {
       <div className='input-group-append'>
         <button
           disabled={!title}
-          onClick={() => clickAddkButton(title, setTitle(''))}
+          onClick={() => clickAddkButton(title, todoId, setTitle(''))}
           className='btn btn-info'
           type='button'
         >

@@ -1,6 +1,6 @@
-export const addTodo = (title) => ({
+export const addTodo = (title, todoId) => ({
   type: 'ADD_TODO',
-  payload: title,
+  payload: { title, todoId },
 });
 
 export const deleteTodo = (todoId) => ({

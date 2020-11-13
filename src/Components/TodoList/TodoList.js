@@ -9,11 +9,9 @@ function TodoList() {
 
   return (
     <div>
-      {todosArr
-        .filter((todo) => todo.id > 0)
-        .map((todo) => (
-          <TodoListItem key={todo.id} title={todo.title} todoId={todo.id} />
-        ))}
+      {todosArr.map((todo) => (
+        <TodoListItem key={todo.id} title={todo.title} todoId={todo.id} />
+      ))}
     </div>
   );
 }
