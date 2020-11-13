@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { deleteTodo } from '../../redux/actions/actions';
 
@@ -9,7 +10,7 @@ function TodoListItem({ title, todoId }) {
   const [isDone, setIsDone] = useState(false);
 
   const dispatch = useDispatch();
-  const clickTrashButton = (id) => dispatch(deleteTodo(id));
+  const clickTrashButton = (todoId) => dispatch(deleteTodo(todoId));
 
   const tooggleCheckbox = useCallback(() => {
     setIsDone(!isDone);
@@ -58,5 +59,10 @@ function TodoListItem({ title, todoId }) {
     </ul>
   );
 }
+
+TodoListItem.propTypes = {
+  todoId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default React.memo(TodoListItem);

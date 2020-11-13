@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TodoListItem from '../TodoListItem/TodoListItem';
+import PropTypes from 'prop-types';
 
 import './TodoList.css';
 
@@ -15,5 +16,14 @@ function TodoList() {
     </div>
   );
 }
+
+TodoList.propTypes = {
+  todosArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};
 
 export default React.memo(TodoList);
