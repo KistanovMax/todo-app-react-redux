@@ -1,17 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import { deleteTodo } from '../../redux/actions/actions';
 
 import './TodoListItem.css';
 
-function TodoListItem({ title, todoId }) {
+function TodoListItem({ title, todoId, date, clickTrashButton }) {
   const [isDone, setIsDone] = useState(false);
   const [isImportant, setIsImportant] = useState(false);
-
-  const dispatch = useDispatch();
-  const clickTrashButton = (todoId) => dispatch(deleteTodo(todoId));
 
   const tooggleDone = useCallback(() => {
     setIsDone(!isDone);
@@ -35,8 +29,11 @@ function TodoListItem({ title, todoId }) {
     <div>
       <div className='card text-secondary mb-2'>
         <div className={importantTodoStyle}>
-          14 November
-          <button className={doneButtonStyle} onClick={tooggleDone}>
+          {date}
+          <button
+            className={doneButtonStyle}
+            onClick={() => tooggleDone(isDone)}
+          >
             {isDone ? (
               <div className='button-text-green'>Awesome!</div>
             ) : (
@@ -98,7 +95,9 @@ function TodoListItem({ title, todoId }) {
 
 TodoListItem.propTypes = {
   todoId: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  date: PropTypes.string,
+  clickTrashButton: PropTypes.func.isRequired,
 };
 
 export default React.memo(TodoListItem);
