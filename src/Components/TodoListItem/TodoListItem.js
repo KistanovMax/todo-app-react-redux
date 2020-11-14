@@ -21,8 +21,6 @@ function TodoListItem({ title, todoId }) {
     setIsImportant(!isImportant);
   }, [isImportant]);
 
-  console.log(isImportant);
-
   let doneButtonStyle = 'button';
   if (isDone) {
     doneButtonStyle += ' done';

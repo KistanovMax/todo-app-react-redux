@@ -10,7 +10,11 @@ function TodoForm() {
   const [title, setTitle] = useState('');
   const todoId = uuid();
   const dispatch = useDispatch();
-  const clickAddkButton = (title, todoId) => dispatch(addTodo(title, todoId));
+
+  const clickAddButton = (title, todoId) => {
+    dispatch(addTodo(title, todoId));
+    setTitle('');
+  };
 
   const typeTitleText = useCallback(
     (event) => {
@@ -19,10 +23,21 @@ function TodoForm() {
     [setTitle]
   );
 
+  const pressEnter = useCallback(
+    (event) => {
+      if (title && event.keyCode === 13) {
+        dispatch(addTodo(title, todoId));
+        setTitle('');
+      }
+    },
+    [dispatch, title, todoId]
+  );
+
   return (
     <div className='input-group mb-3'>
       <input
         onChange={typeTitleText}
+        onKeyDown={pressEnter}
         type='text'
         className='form-control'
         placeholder='New ToDo'
@@ -31,7 +46,7 @@ function TodoForm() {
       <div className='input-group-append'>
         <button
           disabled={!title}
-          onClick={() => clickAddkButton(title, todoId, setTitle(''))}
+          onClick={() => clickAddButton(title, todoId)}
           className='btn btn-secondary'
           type='button'
         >

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  flex-wrap: wrap;
   padding: 4px 20px;
 }
 
@@ -46,7 +46,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  flex-wrap: wrap;
+  min-height: 70px;
 }
 
 .card-title {
