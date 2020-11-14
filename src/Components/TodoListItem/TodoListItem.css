@@ -1,22 +1,68 @@
-.list-group-item {
-  padding: 0;
-  margin-top: 8px;
-  height: 45px;
-}
-
-.item-box {
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
+  color: rgb(255, 100, 0);
+  padding: 4px 20px;
 }
 
-.form-check-input {
-  margin-top: 5px;
-  margin-left: 0px;
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  color: rgba(0, 0, 0, 0.5);
+  background: none;
+  border: none;
 }
 
-.titleText {
+.button:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.button:focus,
+.button:active {
+  outline: none;
+  border: none;
+}
+
+.done {
+  color: rgb(0, 175, 0);
+}
+
+.done:hover {
+  color: rgb(0, 175, 0);
+}
+
+.button-text {
+  color: rgba(0, 0, 0, 0.5);
+  padding-right: 5px;
+}
+
+.button-text:hover {
+  color: rgba(0, 0, 0, 0.6);
+  padding-right: 5px;
+}
+
+.button-text-green {
+  color: rgb(0, 175, 0);
+  padding-right: 5px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
   text-transform: capitalize;
-  padding-left: 16px;
+  margin: 0;
+}
+
+.trash:hover {
+  color: red;
+}
+
+.bi-trash {
+  padding-bottom: 2px;
 }

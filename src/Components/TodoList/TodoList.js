@@ -9,7 +9,7 @@ function TodoList() {
   const todosArr = useSelector((state) => state.todoReducer);
 
   return (
-    <div>
+    <div className='todo-list'>
       {todosArr.map((todo) => (
         <TodoListItem key={todo.id} title={todo.title} todoId={todo.id} />
       ))}

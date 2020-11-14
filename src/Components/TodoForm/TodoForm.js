@@ -20,7 +20,7 @@ function TodoForm() {
   );
 
   return (
-    <div className='input-group mb'>
+    <div className='input-group mb-3'>
       <input
         onChange={typeTitleText}
         type='text'
@@ -32,7 +32,7 @@ function TodoForm() {
         <button
           disabled={!title}
           onClick={() => clickAddkButton(title, todoId, setTitle(''))}
-          className='btn btn-info'
+          className='btn btn-secondary'
           type='button'
         >
           Add ToDo

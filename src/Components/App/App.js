@@ -7,7 +7,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className='container jumbotron'>
+    <div className='container'>
       <Header />
       <TodoForm />
       <TodoList />
