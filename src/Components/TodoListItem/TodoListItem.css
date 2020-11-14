@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: rgb(255, 100, 0);
+
   padding: 4px 20px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .button:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgb(0, 175, 0);
 }
 
 .button:focus,
@@ -34,12 +34,6 @@
 }
 
 .button-text {
-  color: rgba(0, 0, 0, 0.5);
-  padding-right: 5px;
-}
-
-.button-text:hover {
-  color: rgba(0, 0, 0, 0.6);
   padding-right: 5px;
 }
 
@@ -66,4 +60,8 @@
 
 .bi-trash {
   padding-bottom: 2px;
+}
+
+.important {
+  background: rgba(0, 0, 0, 0.199);
 }

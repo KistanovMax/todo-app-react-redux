@@ -8,25 +8,37 @@ import './TodoListItem.css';
 
 function TodoListItem({ title, todoId }) {
   const [isDone, setIsDone] = useState(false);
+  const [isImportant, setIsImportant] = useState(false);
 
   const dispatch = useDispatch();
   const clickTrashButton = (todoId) => dispatch(deleteTodo(todoId));
 
-  const tooggleCheckbox = useCallback(() => {
+  const tooggleDone = useCallback(() => {
     setIsDone(!isDone);
   }, [isDone]);
+
+  const tooggleImportant = useCallback(() => {
+    setIsImportant(!isImportant);
+  }, [isImportant]);
+
+  console.log(isImportant);
 
   let doneButtonStyle = 'button';
   if (isDone) {
     doneButtonStyle += ' done';
   }
 
+  let importantTodoStyle = 'card-header bg-light text-secondary';
+  if (isImportant) {
+    importantTodoStyle = 'card-header important text-secondary';
+  }
+
   return (
     <div>
       <div className='card text-secondary mb-2'>
-        <div className='card-header bg-light text-secondary'>
-          14 November{' '}
-          <button className={doneButtonStyle} onClick={tooggleCheckbox}>
+        <div className={importantTodoStyle}>
+          14 November
+          <button className={doneButtonStyle} onClick={tooggleDone}>
             {isDone ? (
               <div className='button-text-green'>Awesome!</div>
             ) : (
@@ -51,7 +63,7 @@ function TodoListItem({ title, todoId }) {
             </svg>
           </button>
         </div>
-        <div className='card-body bg-light'>
+        <div className='card-body bg-light' onClick={tooggleImportant}>
           <h5 className='card-title'>{title}</h5>
           {isDone && (
             <div className='card-buttons'>
