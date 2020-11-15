@@ -6,7 +6,8 @@ import { transferDate } from '../../redux/actions/actions';
 
 export default function CurrentDate() {
   const dispatch = useDispatch();
-  const getCurrentDate = (currentDate) => dispatch(transferDate(currentDate));
+  const getCurrentDate = (currentDate) =>
+    dispatch(transferDate(currentDate));
 
   const monthArr = [
     'January',
@@ -23,7 +24,9 @@ export default function CurrentDate() {
     'December',
   ];
   const date = new Date();
-  const currentDate = `${monthArr[date.getMonth()]}, ${date.getDate()}`;
+  const currentDate = `${
+    monthArr[date.getMonth()]
+  }, ${date.getDate()}`;
 
   useEffect(() => {
     getCurrentDate(currentDate);
