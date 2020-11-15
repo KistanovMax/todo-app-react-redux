@@ -20,7 +20,7 @@ function TodoListItem({
 
   return (
     <div className='card text-secondary mb-2'>
-      <div className='card-header bg-light text-secondary'>
+      <div className='card-header bg-light text-secondary top-border-line'>
         {date}
         <button
           className={doneButtonStyle}

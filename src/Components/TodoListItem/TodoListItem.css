@@ -1,9 +1,15 @@
+.card:first-child {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 4px 20px;
+  border-top-left-radius: 0px;
 }
 
 .button {

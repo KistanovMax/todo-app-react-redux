@@ -7,9 +7,11 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className='container'>
-      <Header />
-      <TodoForm />
+    <div className=''>
+      <div className='fixed-top bg-white'>
+        <Header />
+        <TodoForm />
+      </div>
       <TodoList />
     </div>
   );

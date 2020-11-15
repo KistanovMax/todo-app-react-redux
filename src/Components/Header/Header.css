@@ -1,8 +1,10 @@
 .navbar {
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   background: rgb(255, 100, 0);
   color: rgb(255, 255, 255);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .navbar-brand {

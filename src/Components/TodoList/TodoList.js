@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TodoListItem from '../TodoListItem/TodoListItem';
+import ControlPanel from '../ControlPanel/ControlPanel';
 import PropTypes from 'prop-types';
 
 import { deleteTodo } from '../../redux/actions/actions';
@@ -23,20 +24,23 @@ function TodoList() {
     dispatch(todoImportant(todoId, isImportant));
 
   return (
-    <div className='todo-list'>
-      {todosArr.map((todo) => (
-        <TodoListItem
-          key={todo.id}
-          title={todo.title}
-          todoId={todo.id}
-          isDone={todo.isDone}
-          isImportant={todo.isImportant}
-          date={date}
-          clickTrashButton={clickTrashButton}
-          tooggleDone={tooggleDone}
-          tooggleImportant={tooggleImportant}
-        />
-      ))}
+    <div className='todo-list-box container'>
+      {todosArr.length > 0 ? <ControlPanel /> : null}
+      <div className='todo-list'>
+        {todosArr.map((todo) => (
+          <TodoListItem
+            key={todo.id}
+            title={todo.title}
+            todoId={todo.id}
+            isDone={todo.isDone}
+            isImportant={todo.isImportant}
+            date={date}
+            clickTrashButton={clickTrashButton}
+            tooggleDone={tooggleDone}
+            tooggleImportant={tooggleImportant}
+          />
+        ))}
+      </div>
     </div>
   );
 }

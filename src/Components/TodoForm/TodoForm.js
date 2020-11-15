@@ -34,7 +34,7 @@ function TodoForm() {
   );
 
   return (
-    <div className='input-group mb-3'>
+    <div className='input-group container'>
       <input
         onChange={typeTitleText}
         onKeyDown={pressEnter}
