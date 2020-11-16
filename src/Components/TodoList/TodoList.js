@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TodoListItem from '../TodoListItem/TodoListItem';
 import ControlPanel from '../ControlPanel/ControlPanel';
 import PropTypes from 'prop-types';
 
-import { deleteTodo } from '../../redux/actions/actions';
-import { todoDone } from '../../redux/actions/actions';
-import { todoImportant } from '../../redux/actions/actions';
+import {
+  deleteTodo,
+  todoDone,
+  todoImportant,
+} from '../../redux/actions/actions';
 
 import './TodoList.css';
 
@@ -15,13 +17,26 @@ function TodoList() {
   const todosArr = useSelector((state) => state.todoReducer);
 
   const dispatch = useDispatch();
-  const clickTrashButton = (todoId) => dispatch(deleteTodo(todoId));
+  const clickTrashButton = useCallback(
+    (todoId) => {
+      dispatch(deleteTodo(todoId));
+    },
+    [dispatch]
+  );
 
-  const tooggleDone = (todoId, isDone) =>
-    dispatch(todoDone(todoId, isDone));
+  const tooggleDone = useCallback(
+    (todoId, isDone) => {
+      dispatch(todoDone(todoId, isDone));
+    },
+    [dispatch]
+  );
 
-  const tooggleImportant = (todoId, isImportant) =>
-    dispatch(todoImportant(todoId, isImportant));
+  const tooggleImportant = useCallback(
+    (todoId, isImportant) => {
+      dispatch(todoImportant(todoId, isImportant));
+    },
+    [dispatch]
+  );
 
   return (
     <div className='todo-list-box container'>
@@ -50,8 +65,11 @@ TodoList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      isDone: PropTypes.bool.isRequired,
+      isImportant: PropTypes.bool.isRequired,
     }).isRequired
   ),
+  date: PropTypes.string,
 };
 
 export default React.memo(TodoList);
