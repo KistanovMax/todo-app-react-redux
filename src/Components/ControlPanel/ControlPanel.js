@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './ControlPanel.css';
 
 export default function ControlPanel({ counter, clickDeleteCompletedTodos }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const tooggleModal = () => {
+  const tooggleModal = useCallback(() => {
     if (counter > 0) {
       setIsOpen(true);
     }
-  };
+  }, [counter]);
 
   return (
     <div>
@@ -21,11 +22,11 @@ export default function ControlPanel({ counter, clickDeleteCompletedTodos }) {
         setIsOpen={setIsOpen}
         clickDeleteCompletedTodos={clickDeleteCompletedTodos}
       />
-      <div className='btn-group container fixed-top bg-white'>
+      <div className='button-group container fixed-top bg-white'>
         <button
           onClick={() => tooggleModal()}
           type='button'
-          className='btn btn-secondary left-btn'
+          className={classNames('btn btn-secondary left-btn', { orange: counter > 0 })}
         >
           Delete {counter} todos
         </button>

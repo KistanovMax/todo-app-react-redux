@@ -19,16 +19,16 @@
 }
 
 .gray {
-  background: rgba(75, 75, 75, 0.7);
+  background: rgba(90, 90, 90, 0.8);
   border: none;
 }
 
 .gray:hover {
-  background: rgba(75, 75, 75);
+  background: rgb(90, 90, 90);
 }
 
 .orange {
-  background: rgba(255, 102, 0, 0.7);
+  background: rgba(255, 102, 0, 0.8);
   border: none;
 }
 

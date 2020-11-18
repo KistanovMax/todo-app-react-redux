@@ -1,12 +1,27 @@
-.btn-group {
+.button-group {
   margin-top: 115px;
   padding: 0;
 }
 
 .left-btn {
+  min-width: 200px;
   border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-right: 10px;
+}
+
+.left-btn:focus,
+.left-btn:active {
+  box-shadow: none;
 }
 
 .right-btn {
+  min-width: 200px;
+  border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.right-btn:focus,
+.right-btn:active {
+  box-shadow: none;
 }

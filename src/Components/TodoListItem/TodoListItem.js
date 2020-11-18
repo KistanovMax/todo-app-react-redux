@@ -22,14 +22,10 @@ function TodoListItem({
       <div className='card-header bg-light text-secondary top-border-line'>
         {date}
         <button
-          className={classNames('button', { 'button done': isDone })}
+          className={classNames('button', { 'done': isDone })}
           onClick={() => tooggleDone(todoId, isDone)}
         >
-          {isDone ? (
-            <div className='button-text-green'>Awesome!</div>
-          ) : (
-            <div className='button-text'>Done?</div>
-          )}
+          {isDone && <div className='button-text-green'>Awesome!</div>}
           <Done />
         </button>
       </div>
@@ -48,9 +44,7 @@ function TodoListItem({
               className='button trash'
               type='button'
             >
-              <div>
-                Delete? <Trash />
-              </div>
+              <Trash />
             </button>
           </div>
         )}
