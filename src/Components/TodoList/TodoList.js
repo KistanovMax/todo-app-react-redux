@@ -40,12 +40,17 @@ function TodoList() {
     [dispatch]
   );
 
-  const clickDeleteCompletedTodos = () => dispatch(deleteCompletedTodos());
+  const clickDeleteCompletedTodos = useCallback(() => {
+    dispatch(deleteCompletedTodos());
+  }, [dispatch]);
 
   return (
     <div className='todo-list-box container'>
       {todosArr.length > 0 ? (
-        <ControlPanel counter={counter} clickDeleteCompletedTodos={clickDeleteCompletedTodos} />
+        <ControlPanel
+          counter={counter}
+          clickDeleteCompletedTodos={clickDeleteCompletedTodos}
+        />
       ) : null}
       <div className='todo-list'>
         {todosArr.map((todo) => (

@@ -7,7 +7,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <div className=''>
+    <div>
       <div className='fixed-top bg-white'>
         <Header />
         <TodoForm />
