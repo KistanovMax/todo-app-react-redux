@@ -18,6 +18,10 @@ export const todoImportant = (todoId, isTodoImportant) => ({
   payload: { todoId, isTodoImportant },
 });
 
+export const deleteCompletedTodos = () => ({
+  type: 'DELETE_COMPLETED_TODOS',
+});
+
 export const transferDate = (currentDate) => ({
   type: 'TRANSFER_DATE',
   payload: currentDate,

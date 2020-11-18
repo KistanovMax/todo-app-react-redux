@@ -8,6 +8,7 @@ import {
   deleteTodo,
   todoDone,
   todoImportant,
+  deleteCompletedTodos,
 } from '../../redux/actions/actions';
 
 import './TodoList.css';
@@ -15,6 +16,7 @@ import './TodoList.css';
 function TodoList() {
   const { date } = useSelector((state) => state.dateReducer);
   const todosArr = useSelector((state) => state.todoReducer);
+  const counter = useSelector((state) => state.todoCounter);
 
   const dispatch = useDispatch();
   const clickTrashButton = useCallback(
@@ -38,9 +40,13 @@ function TodoList() {
     [dispatch]
   );
 
+  const clickDeleteCompletedTodos = () => dispatch(deleteCompletedTodos());
+
   return (
     <div className='todo-list-box container'>
-      {todosArr.length > 0 ? <ControlPanel /> : null}
+      {todosArr.length > 0 ? (
+        <ControlPanel counter={counter} clickDeleteCompletedTodos={clickDeleteCompletedTodos} />
+      ) : null}
       <div className='todo-list'>
         {todosArr.map((todo) => (
           <TodoListItem

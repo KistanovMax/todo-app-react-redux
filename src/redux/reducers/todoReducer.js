@@ -15,15 +15,11 @@ const todoReducer = (state = initialState, action) => {
       ]);
 
     case 'DELETE_TODO':
-      return (state = [
-        ...state.filter((todo) => todo.id !== payload),
-      ]);
+      return (state = [...state.filter((todo) => todo.id !== payload)]);
 
     case 'TODO_DONE':
       return state.map((todo) =>
-        todo.id === payload.todoId
-          ? { ...todo, isDone: !payload.isTodoDone }
-          : todo
+        todo.id === payload.todoId ? { ...todo, isDone: !payload.isTodoDone } : todo
       );
 
     case 'TODO_IMPORTANT':
@@ -32,6 +28,10 @@ const todoReducer = (state = initialState, action) => {
           ? { ...todo, isImportant: !payload.isTodoImportant }
           : todo
       );
+
+    case 'DELETE_COMPLETED_TODOS':
+      return state.filter((todo) => todo.isDone === false);
+
     default:
       return state;
   }
