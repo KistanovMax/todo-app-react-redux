@@ -18,9 +18,11 @@ const todoReducer = (state = initialState, action) => {
       return (state = [...state.filter((todo) => todo.id !== payload)]);
 
     case 'TODO_DONE':
-      return state.map((todo) =>
-        todo.id === payload.todoId ? { ...todo, isDone: !payload.isTodoDone } : todo
-      );
+      return state
+        .map((todo) =>
+          todo.id === payload.todoId ? { ...todo, isDone: !payload.isTodoDone } : todo
+        )
+        .sort((a, b) => a.isDone - b.isDone);
 
     case 'TODO_IMPORTANT':
       return state.map((todo) =>

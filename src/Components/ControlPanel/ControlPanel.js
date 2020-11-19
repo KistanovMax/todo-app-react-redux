@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import './ControlPanel.css';
 
-export default function ControlPanel({ counter, clickDeleteCompletedTodos }) {
+function ControlPanel({ counter, clickDeleteCompletedTodos }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const tooggleModal = useCallback(() => {
@@ -42,3 +42,5 @@ ControlPanel.propTypes = {
   counter: PropTypes.number,
   clickDeleteCompletedTodos: PropTypes.func.isRequired,
 };
+
+export default React.memo(ControlPanel);
